@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     # Third apps
     'debug_toolbar',
     # Local apps
-
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -77,6 +77,8 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR , 'db.sqlite3'),
     }
 }
+
+AUTH_USER_MODEL = 'accounts.User'
 
 
 # Password validation
