@@ -17,6 +17,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+ADMINS = [
+    ('Woo Seok', 'tjdntjr123@gmail.com')
+]
+
 
 # Application definition
 
@@ -29,9 +33,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Third apps
+    'bootstrap4',
     'debug_toolbar',
+    'django_pydenticon',
+    'easy_thumbnails',
     # Local apps
     'accounts',
+    'instagram',
 ]
 
 MIDDLEWARE = [
@@ -74,7 +82,7 @@ WSGI_APPLICATION = 'djangoweb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR , 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -119,7 +127,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'djangoweb', 'static')
+    os.path.join(BASE_DIR, 'djangoweb', 'static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
@@ -127,4 +135,16 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 INTERNAL_IPS = ['127.0.0.1']
+
+# Send Mail
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = 'tjdntjr123@gmail.com'
+EMAIL_HOST_PASSWORD = 'rvrs2013!!'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+WELCOME_EMAIL_SENDER = 'tjdntjr123@gmail.com'
 
