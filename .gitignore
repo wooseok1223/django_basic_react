@@ -3,4 +3,6 @@ db.sqlite3
 /static
 /media
 /.idea
+/.venv
+
 
