@@ -2,7 +2,8 @@ __pycache__
 db.sqlite3
 /static
 /media
-/.idea
-/.venv
-
+.idea
+/idea
+.venv
+venv/
 
