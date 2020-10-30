@@ -11,6 +11,10 @@ class User(AbstractUser):
         MALE = 'M', '남성'
         FEMALE = 'F', '여성'
 
+    follower_set = models.ManyToManyField("self", blank=True)
+    following_set = models.ManyToManyField("self", blank=True)
+
+
     website_url = models.URLField(blank=True)
     bio = models.TextField(blank=True)
     phone_number = models.CharField(max_length=13,
@@ -30,8 +34,7 @@ class User(AbstractUser):
         if self.avatar:
             return self.avatar.url
         else:
-            resolve_url("pydenticon_image", self.username)
-            return
+            return resolve_url("pydenticon_image", self.username)
 
     def send_welcome_email(self):
         subject = render_to_string("accounts/welcome_email_subject", {
